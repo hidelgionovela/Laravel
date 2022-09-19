@@ -65,3 +65,15 @@ Route::get('/sobre', function () {
 Route::redirect('/about', '/ujc');
 // quando queremos rederizar uma view apenas podemos usar esse modelo 
 // Route::view('/empresa', '/site/empresa');
+
+
+// ---------------- Rotas nomeadas ------//
+// O uso de nomes nas rotas e bom ou ee importante pois quando usamos o redirecionamento com o nome da rota por mais que a rota mude com o tempo se o nome ainda for o mesmo nos poderemos ter a acesso a nova rota
+
+Route::get('/news', function () {
+    return view('news');
+})->name('noticias');
+
+Route::get('/novidades', function () {
+    return redirect()->route('noticias');
+});
