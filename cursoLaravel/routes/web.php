@@ -35,7 +35,7 @@ Route::any('/acessoTotal', function () {
 });
 
 //  metodo match Permite apenas tipo de acesso http definidos como parametro (put, delete, get, post)
-Route::match(['get','post'],'/definidos', function () {
+Route::match(['get', 'post'], '/definidos', function () {
     return "Permite acessos http definidos";
 });
 
@@ -43,7 +43,7 @@ Route::match(['get','post'],'/definidos', function () {
 // passagem de parametros
 
 Route::get('/estudante/{id}/{curso}', function ($nrEstudante, $curso) {
-    return "O numero de estudante ee: $nrEstudante <br>". "O curso dele ee $curso" ;
+    return "O numero de estudante ee: $nrEstudante <br>" . "O curso dele ee $curso";
 });
 
 // Route::get('/estudante/{id}/{curso}', function ($nrEstudante = '', $curso = '') {
@@ -60,14 +60,14 @@ Route::get('/sobre', function () {
     return redirect('/empresa');
 });
 
-// mas podemos tambem fazer o redirecionamento da seguinte maneira sem usar a funcao de cauback
+// mas podemos tambem fazer o redirecionamento da seguinte maneira sem usar a funcao de callback
 
 Route::redirect('/about', '/ujc');
 // quando queremos rederizar uma view apenas podemos usar esse modelo 
 // Route::view('/empresa', '/site/empresa');
 
 
-// ---------------- Rotas nomeadas ------//
+// ---------------- Rotas nomeadas -------------------//
 // O uso de nomes nas rotas e bom ou ee importante pois quando usamos o redirecionamento com o nome da rota por mais que a rota mude com o tempo se o nome ainda for o mesmo nos poderemos ter a acesso a nova rota
 
 Route::get('/news', function () {
@@ -76,4 +76,84 @@ Route::get('/news', function () {
 
 Route::get('/novidades', function () {
     return redirect()->route('noticias');
+});
+
+
+// ------------------- Grupo de Rotas---------------------//
+
+// Route::get('admin/dashbord', function () {
+//     return 'dashbord';
+// });
+
+// Route::get('admin/users', function () {
+//     return 'users';
+// });
+
+// Route::get('admin/clientes', function () {
+//     return 'clientes';
+// });
+
+// temos as rotas acima com uma repeticao "admin" no inicio da rota entao para esses casos nos podemos optimizar o codigo jogando essas rotas num grupo com prefixo admin
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('dashbord', function () {
+        return 'dashbord';
+    });
+
+    Route::get('users', function () {
+        return 'users';
+    });
+
+    Route::get('clientes', function () {
+        return 'clientes';
+    });
+});
+
+
+// Mas para alem de arupar pela rota em caso de termos rotas nomeadas podemos agrupar pelos nomes
+
+// Route::name('estudante.')->group(function () {
+
+//     Route::get('estudante/notas', function () {
+//         return 'Notas';
+//     })->name('notas');
+
+//     Route::get('estudante/disciplinas', function () {
+//         return 'Disciplinas';
+//     })->name('disciplinas');
+
+//     Route::get('estudante/faltas', function () {
+//         return 'Faltas';
+//     })->name('faltas');
+// });
+// // Teste
+// Route::get('/h', function () {
+//     return redirect()->route('estudante.faltas');
+// });
+
+
+// EE possivel agrupar por name e prefixo ao mesmo tempo tambem
+
+
+Route::group([
+    'prefix' => 'estudante',  //informando o prefixo do grupo
+    'as' => 'estudante.'  //informando o none do grupo && a chave para o name no goup ee "as" 
+], function () {
+
+    Route::get('notas', function () {
+        return 'Notas';
+    })->name('notas');
+
+    Route::get('disciplinas', function () {
+        return 'Disciplinas';
+    })->name('disciplinas');
+
+    Route::get('faltas', function () {
+        return 'Faltas';
+    })->name('faltas');
+});
+// Teste do name
+Route::get('/h', function () {
+    return redirect()->route('estudante.faltas');
 });
