@@ -24,6 +24,10 @@ Route::get('/empresa', function () {
     return view('site/empresa');
 });
 
+Route::get('/ujc', function () {
+    return view('site/ujc');
+});
+
 
 //  metodo any Permite qualquer tipo de acesso http (put, delete, get, post); mas nao ee seguro
 Route::any('/acessoTotal', function () {
@@ -50,3 +54,14 @@ Route::get('/estudante/{id}/{curso}', function ($nrEstudante, $curso) {
 
 
 // ---------------- REDIRECIONAMENTOS E VIEW------//
+
+// neste caso ao requisitar a rota sobre ele vai nos redirecionar a rota empresa
+Route::get('/sobre', function () {
+    return redirect('/empresa');
+});
+
+// mas podemos tambem fazer o redirecionamento da seguinte maneira sem usar a funcao de cauback
+
+Route::redirect('/about', '/ujc');
+// quando queremos rederizar uma view apenas podemos usar esse modelo 
+// Route::view('/empresa', '/site/empresa');
