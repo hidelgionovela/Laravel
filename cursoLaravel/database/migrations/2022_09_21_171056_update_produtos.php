@@ -13,7 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::rename('produtos', 'produto');
+       Schema::table('produtos', function(Blueprint $table){
+            $table->renameColumn('nomee', 'nome');
+            $table->dropColumn('nomeCompleto');
+       });
     }
 
     /**

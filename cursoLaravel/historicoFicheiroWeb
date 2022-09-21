@@ -58,6 +58,13 @@ use Illuminate\Support\Facades\Route;
          Schema::rename('produtos', 'produto');
 }*/ 
 
+// Podemos usar os migrates tambem para alterar o nome das colunas
+// exemplo:
+/*Schema::table('produto', function(Blueprint $table){
+        $table->renameColumn('nomee', 'nome');
+   });*/ // isso dentro da funcacao up como no exemplo anterior
+//    e se fosse para apagar era so usar o metodo dropColumn('nomeDaColuna')
+
 
 
 
