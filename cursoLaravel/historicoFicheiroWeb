@@ -49,6 +49,15 @@ use Illuminate\Support\Facades\Route;
 // o prefixo create e o sufixo table servem para criar condicoes para que o migrate seja 
 // criado ja pronto para ser executado
 
+// Podemos usar os migrates tambem para alterar o nome das tabelas
+// ou seja criar um migrate que sera responsavel por renomear nome de tabelas
+// por exemplo:
+// todo - php artisan make:migration alterar_nome_tabela_produtos 
+// E no migration na funcao up fazer o seguinte:
+/* public function up(){
+         Schema::rename('produtos', 'produto');
+}*/ 
+
 
 
 
