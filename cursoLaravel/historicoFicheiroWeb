@@ -32,10 +32,22 @@ use Illuminate\Support\Facades\Route;
 
 
 
+// criando uma rota para acessar os metodos do produtoController. 
+// Route::resource('produtos', produtoController::class);
 
 
 
 // ---------------- Fim do tema Controlers ---------------------//
+
+// ---------------- Migration  ---------------------//
+// formas de criar um migrate ja pronto para ser executado
+
+// TODO - php artisan make:migration create_nomeDoMigration_table
+// outra forma de criar migrates prontos;
+// todo - php artisan make:migration nomeDoMigration --create=nomeDaTabela
+
+// o prefixo create e o sufixo table servem para criar condicoes para que o migrate seja 
+// criado ja pronto para ser executado
 
 
 
