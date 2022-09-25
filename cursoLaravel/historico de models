@@ -5,3 +5,7 @@
 
 
 // Seeder - recurso para a gente inserir dados no nosso banco de dados e ganhar tempo.
+// php artisan make:seeder nome_do_seeder
+
+// Factory - ee usado para inserir registros em massa no banco de dados...
+// php artisan make:factory nome_do_factory
