@@ -2,3 +2,6 @@
 
 // Model - Representacao de uma entidade de uma bases de dados.
 // responsavel pela manipulacao da base de dados.
+
+
+// Seeder - recurso para a gente inserir dados no nosso banco de dados e ganhar tempo.
