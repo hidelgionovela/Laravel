@@ -22,7 +22,6 @@ return new class extends Migration
             $table -> string('imagem')->nullable();
             $table -> unsignedBigInteger('id_user');
             $table -> foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
             $table -> unsignedBigInteger('id_categoria');
             $table -> foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
 
