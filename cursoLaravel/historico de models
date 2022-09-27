@@ -9,3 +9,8 @@
 
 // Factory - ee usado para inserir registros em massa no banco de dados...
 // php artisan make:factory nome_do_factory
+
+
+// ---------------Criando um model migrate factory seeder controller resorce num so comando --------------//
+
+// php artisan make:model 'nomeModel' -mfscr
