@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Machine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MachinesController extends Controller
 {
@@ -14,7 +16,20 @@ class MachinesController extends Controller
     public function index()
     {
         //
-        echo "<h1>Listar Maquinas</h1>";
+        // $maquinas = DB::select('select id,nome from machines');
+        // dd == var_dump
+        // A diferenca ee que o dd imprime e pausa o processamento e o var_dump nao pausa o processamento
+        // var_dump($maquinas);
+        // dd($maquinas);
+
+        //  No Exemplo acima quem esta recuperando os dados ee a controller que nao ee o correcto no modelo mvc
+        // Quem deve recuperar os dados e a model
+
+        $maquinas = Machine::all();
+        // dd($maquinas);
+
+        return view('machines.PaginaInicial')->with('machines', $maquinas);
+       
     }
 
     /**
