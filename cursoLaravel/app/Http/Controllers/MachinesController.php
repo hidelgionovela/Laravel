@@ -39,7 +39,7 @@ class MachinesController extends Controller
      */
     public function create()
     {
-        //
+        return view('machines.cadastro');
     }
 
     /**
@@ -50,7 +50,23 @@ class MachinesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Primeira Forma de cadastrar
+        // $maquinas = new Machine();
+        // $maquinas->nome = $request->nome;
+        // $maquinas->save();
+
+        // return redirect('/listar');
+
+
+        // Segunda Forma de cadastrar
+
+        // dd($request->all());
+        // Machine::create($request->all());
+
+        // Terceira Forma de cadastrar
+        Machine::create($request->only('nome'));
+         return redirect('/listar');
+
     }
 
     /**
