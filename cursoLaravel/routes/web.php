@@ -35,6 +35,8 @@ Route::get('/listar', [MachinesController::class, 'index']);
 // Mas podemos usar tambem o metodo show.
 
 Route::get('/visualizar/{id}', [MachinesController::class, 'show']);
+Route::get('/cadastrar', [MachinesController::class, 'create']);
+Route::post('/cadastrar', [MachinesController::class, 'store']);
 
 
 
