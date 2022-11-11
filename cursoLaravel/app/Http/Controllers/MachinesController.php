@@ -64,8 +64,12 @@ class MachinesController extends Controller
         // Machine::create($request->all());
 
         // Terceira Forma de cadastrar
+        // Machine::create($request->only('nome'));
+        //  return redirect('/listar')->with('sucesso', 'Maquina Cadastrada com Sucesso!');
+
+        // depois de implimentar links fica assim
         Machine::create($request->only('nome'));
-         return redirect('/listar');
+        return redirect('machines')->with('sucesso', 'Maquina Cadastrada com Sucesso!');
 
     }
 
