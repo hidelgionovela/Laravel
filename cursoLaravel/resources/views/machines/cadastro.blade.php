@@ -2,10 +2,11 @@
 
 <x-layout title="CadastrarMaquinas">
 
+<a href="{{route('machines.index')}}">Listar</a>
         <h1>Cadastrar Nova Maquina</h1>
 
-        <form action="/cadastrar" method="POST">
-             {{-- @csrf Usado para questoes de seguranca para que o formulario nao seja enviado para fora do projecto     --}}
+        <form action="{{route('machines.store')}}" method="POST">
+             {{-- @csrf Usado para questoes de seguranca para que o formulario nao seja enviado para fora do projecto gera um token    --}}
              @csrf
 
              <label for=""></label>
