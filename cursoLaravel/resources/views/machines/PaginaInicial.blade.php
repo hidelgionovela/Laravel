@@ -2,13 +2,15 @@
 
 <x-layout title="listarMaquinas">
 
+        <a href="{{route('machines.create')}}">Cadastrar</a>
         <h1>Listar as Maquinas</h1>
+        @include('components.flash-msg')
 
         <table style="border: 1px solid black;">
                 <thead>
                         <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
+                                <th>ID_Maquina</th>
+                                <th>Nome_Maquina</th>
                                 
                               </tr>
                 </thead>
