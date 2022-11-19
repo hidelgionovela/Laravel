@@ -11,6 +11,8 @@
                         <tr>
                                 <th>ID_Maquina</th>
                                 <th>Nome_Maquina</th>
+                                <th>Acoes</th>
+
                                 
                               </tr>
                 </thead>
@@ -19,6 +21,7 @@
                         <tr>
                         <td>{{$machine->id}}</td>
                         <td>{{$machine->nome}}</td>
+                        <td><a href="{{route('machines.show'),$machine->id}}">Visualizar</a></td>
                         </tr>
                         
                     @endforeach
