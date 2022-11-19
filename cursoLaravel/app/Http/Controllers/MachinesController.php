@@ -79,10 +79,9 @@ class MachinesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Machine $machine)
     {
-        //
-        echo "<h1>Visualizar Maquina</h1>";
+        return view('machines.show')->with( 'machine', $machine);
     }
 
     /**
