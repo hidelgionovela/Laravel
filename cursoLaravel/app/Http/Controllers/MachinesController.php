@@ -82,7 +82,7 @@ class MachinesController extends Controller
     public function show($id)
     {
         //
-        echo "<h1>Visualizar Maquina $id</h1>";
+        echo "<h1>Visualizar Maquina</h1>";
     }
 
     /**
