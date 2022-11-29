@@ -2,11 +2,10 @@
 
 <x-layout title="Visualizar Maquinas">
 
-<a href="{{route('machines.index')}}">Listar</a>
-        <h1>Visualizar Nova Maquina</h1>
+    <a href="{{ route('machines.index') }}">Listar</a>
+    <h1>Visualizar Nova Maquina</h1>
 
-        ID:{{$machine->id}} <br>
-        Nome:{{$machine->nome}} <br>
-        
+    ID:{{ $machine->id }} <br>
+    Nome:{{ $machine->nome }} <br>
+
 </x-layout>
-
