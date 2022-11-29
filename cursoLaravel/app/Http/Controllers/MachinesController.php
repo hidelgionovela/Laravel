@@ -29,7 +29,6 @@ class MachinesController extends Controller
         // dd($maquinas);
 
         return view('machines.PaginaInicial')->with('machines', $maquinas);
-       
     }
 
     /**
@@ -70,7 +69,6 @@ class MachinesController extends Controller
         // depois de implimentar links fica assim
         Machine::create($request->only('nome'));
         return redirect('machines')->with('sucesso', 'Maquina Cadastrada com Sucesso!');
-
     }
 
     /**
@@ -81,7 +79,7 @@ class MachinesController extends Controller
      */
     public function show(Machine $machine)
     {
-        return view('machines.show')->with( 'machine', $machine);
+        return view('machines.show')->with('machine', $machine);
     }
 
     /**
