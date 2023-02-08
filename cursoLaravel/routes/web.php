@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\MachinesController;
 use App\Http\Controllers\produtoController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +28,14 @@ Route::get('/', function () {
         return view('welcome');
 });
 
+// Route::get('/machines', function () {
+//         return view('machines.PaginaInicial');
+// })->name('machines');
+
+
+Route::get('auth/google', [GoogleAuthController::class,'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class,'callbackGoogle']);
+
 // Para listar usamos no laravel geralmente o metodo get e nos controlleres usamos a action index
 
 /*Route::get('/listar', [MachinesController::class, 'index']);
@@ -38,7 +48,11 @@ Route::post('/cadastrar', [MachinesController::class, 'store']);
 
 // Para trabalhar com link's O padrao das rotas deve ser o seginte:
 Route::resource('machines', MachinesController::class);
+Route::resource('login', loginController::class);
 // Entao para acessar metodo index do MachinesController apenas escrevemos machines depois do barra e para acessar outros metodos machines.nomeMetodo.
+
+
+// require __DIR__.'/auth.php';
 
 
 
