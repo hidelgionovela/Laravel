@@ -41,5 +41,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('regras');
+        Schema::dropIfExists('regra_user');
     }
 };
